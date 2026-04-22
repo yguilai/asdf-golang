@@ -5,11 +5,15 @@ asdf_update_golang_env() {
     export GOROOT
     GOROOT="$(dirname "$(dirname "${go_bin_path:A}")")"
 
-    export GOPATH
-    GOPATH="$(dirname "${GOROOT:A}")/packages"
+    if [[ -z "${GOPATH+x}" ]]; then
+      export GOPATH
+      GOPATH="$(dirname "${GOROOT:A}")/packages"
+    fi
 
-    export GOBIN
-    GOBIN="$(dirname "${GOROOT:A}")/bin"
+    if [[ -z "${GOBIN+x}" ]]; then
+      export GOBIN
+      GOBIN="$(dirname "${GOROOT:A}")/bin"
+    fi
   fi
 }
 
