@@ -2,7 +2,9 @@
 
 [![CI](https://github.com/asdf-community/asdf-golang/actions/workflows/main.yml/badge.svg)](https://github.com/asdf-community/asdf-golang/actions/workflows/main.yml)
 
-golang plugin for [asdf version manager](https://github.com/asdf-vm/asdf)
+golang plugin for [asdf version manager](https://github.com/asdf-vm/asdf), forked
+from [asdf-community/asdf-golang](https://github.com/asdf-community/asdf-golang), but it seems that it is no longer
+maintained
 
 ## Requirements
 
@@ -18,12 +20,14 @@ golang plugin for [asdf version manager](https://github.com/asdf-vm/asdf)
 ## Install
 
 ```bash
-asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+asdf plugin add golang https://github.com/yguilai/asdf-golang.git
 ```
 
 ## Use
 
-To ensure the Golang environment variables are correctly set when using the `asdf` Go plugin (`asdf-golang`), you should source the appropriate `set-env` script for your shell. This is particularly important if you've customized the `asdf` data directory using the `ASDF_DATA_DIR` environment variable. Below are instructions for various shells:
+To ensure the Golang environment variables are correctly set when using the `asdf` Go plugin (`asdf-golang`), you should
+source the appropriate `set-env` script for your shell. This is particularly important if you've customized the `asdf`
+data directory using the `ASDF_DATA_DIR` environment variable. Below are instructions for various shells:
 
 - **Zsh (`.zshrc`):**
 
@@ -55,7 +59,8 @@ After using `go get` or `go install` to install a package you need to run `asdf 
 
 ### Default `go get` packages
 
-asdf-golang can automatically install a default set of packages with `go get -u $PACKAGE` right after installing a new Go version.
+asdf-golang can automatically install a default set of packages with `go get -u $PACKAGE` right after installing a new
+Go version.
 To enable this feature, provide a \$HOME/.default-golang-pkgs file that lists one package per line, for example:
 
 ```bash
@@ -84,8 +89,8 @@ may change in the future, so it should be explicitly set.
 
 ## Architecture Override
 
-The `ASDF_GOLANG_OVERWRITE_ARCH` variable can be used to override the architecture 
-that is used for determining which Go build to download. The primary use case is when attempting 
+The `ASDF_GOLANG_OVERWRITE_ARCH` variable can be used to override the architecture
+that is used for determining which Go build to download. The primary use case is when attempting
 to install an older version of Go for use on an Apple M1 computer as Go was not being built for ARM at the time.
 
 #### Without ASDF_GOLANG_OVERWRITE_ARCH
@@ -111,7 +116,8 @@ checksum verified
 
 ## Skipping Checksums
 
-By default we try to verify the checksum of each install but ocassionally [that's not possible](https://github.com/asdf-community/asdf-golang/issues/91).
+By default we try to verify the checksum of each install but
+ocassionally [that's not possible](https://github.com/asdf-community/asdf-golang/issues/91).
 If you need to skip the checksum for some reason just set `ASDF_GOLANG_SKIP_CHECKSUM`.
 
 ## Contributing
